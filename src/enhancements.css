@@ -1,0 +1,325 @@
+/* App-specific enhancements: fonts and decorative background */
+
+/* Font overrides */
+body {
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+    Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+}
+
+code, pre, kbd, samp {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* Enhanced railway-themed background */
+.app-background {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    /* Railway track pattern */
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 48px,
+      hsl(var(--border) / 0.3) 48px,
+      hsl(var(--border) / 0.3) 50px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 98px,
+      hsl(var(--border) / 0.2) 98px,
+      hsl(var(--border) / 0.2) 100px
+    ),
+    /* Soft radial gradients */
+    radial-gradient(1200px 600px at 50% -10%, hsl(var(--primary) / 0.08), transparent 60%),
+    radial-gradient(800px 400px at 100% 0%, hsl(var(--accent) / 0.06), transparent 60%),
+    /* Fine grid */
+    linear-gradient(to right, hsl(var(--border) / 0.5) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--border) / 0.5) 1px, transparent 1px);
+  background-size: 
+    100px 100px,
+    100px 100px,
+    auto, auto, 
+    24px 24px, 
+    24px 24px;
+  background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+  mask-image: radial-gradient(ellipse at 50% 20%, black 60%, transparent 100%);
+}
+
+.dark .app-background {
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 48px,
+      hsl(var(--border) / 0.4) 48px,
+      hsl(var(--border) / 0.4) 50px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 98px,
+      hsl(var(--border) / 0.3) 98px,
+      hsl(var(--border) / 0.3) 100px
+    ),
+    radial-gradient(1200px 600px at 50% -10%, hsl(var(--primary) / 0.12), transparent 60%),
+    radial-gradient(800px 400px at 100% 0%, hsl(var(--accent) / 0.12), transparent 60%),
+    linear-gradient(to right, hsl(var(--border) / 0.6) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--border) / 0.6) 1px, transparent 1px);
+}
+
+/* Enhanced gradient beam accent */
+.beam-accent {
+  position: absolute;
+  right: -10%;
+  top: -10%;
+  width: 50rem;
+  height: 50rem;
+  background: 
+    radial-gradient(closest-side, hsl(var(--primary) / 0.15), transparent 50%),
+    radial-gradient(closest-side, hsl(var(--accent) / 0.08), transparent 70%);
+  filter: blur(60px);
+  transform: translate3d(0,0,0);
+  animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  33% { transform: translate3d(-20px, -20px, 0) rotate(1deg); }
+  66% { transform: translate3d(20px, -10px, 0) rotate(-1deg); }
+}
+
+/* Railway-themed color palette */
+:root {
+  /* Railway corporate colors */
+  --primary: 220 85% 25%;              /* Deep railway blue */
+  --primary-foreground: 0 0% 98%;
+  --secondary: 210 40% 92%;            /* Light blue-grey */
+  --secondary-foreground: 220 85% 15%;
+  --accent: 45 93% 58%;                /* Safety yellow/orange */
+  --accent-foreground: 220 85% 15%;
+  --muted: 210 40% 96%;
+  --muted-foreground: 215 16% 47%;
+  --destructive: 0 84% 60%;            /* Signal red */
+  --destructive-foreground: 0 0% 98%;
+  --border: 214 32% 91%;
+  --input: 214 32% 91%;
+  --ring: 220 85% 35%;
+  --background: 0 0% 100%;
+  --foreground: 220 85% 15%;
+  --card: 0 0% 100%;
+  --card-foreground: 220 85% 15%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 85% 15%;
+  
+  /* Railway-specific colors */
+  --railway-green: 142 76% 36%;        /* Go signal */
+  --railway-yellow: 45 93% 58%;        /* Caution signal */
+  --railway-red: 0 84% 60%;            /* Stop signal */
+  --railway-blue: 220 85% 25%;         /* Corporate blue */
+  --railway-orange: 25 95% 53%;        /* Warning orange */
+  --railway-steel: 210 11% 71%;        /* Steel grey */
+  
+  /* Chart colors tuned to railway palette */
+  --chart-1: 220 85% 35%;  /* Primary blue */
+  --chart-2: 142 76% 36%;  /* Success green */
+  --chart-3: 45 93% 58%;   /* Warning yellow */
+  --chart-4: 0 84% 60%;    /* Error red */
+  --chart-5: 25 95% 53%;   /* Orange accent */
+}
+
+.dark {
+  --background: 220 85% 4%;
+  --foreground: 210 40% 98%;
+  --card: 220 85% 4%;
+  --card-foreground: 210 40% 98%;
+  --popover: 220 85% 4%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 210 40% 98%;
+  --primary-foreground: 220 85% 6%;
+  --secondary: 220 85% 10%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 220 85% 10%;
+  --muted-foreground: 215 20% 65%;
+  --accent: 45 93% 58%;
+  --accent-foreground: 220 85% 6%;
+  --destructive: 0 62% 50%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 220 85% 10%;
+  --input: 220 85% 10%;
+  --ring: 210 40% 60%;
+}
+
+/* Railway signal lights animation */
+@keyframes signal-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.3; }
+}
+
+.signal-light {
+  animation: signal-blink 2s infinite;
+}
+
+.signal-green { color: hsl(var(--railway-green)); }
+.signal-yellow { color: hsl(var(--railway-yellow)); }
+.signal-red { color: hsl(var(--railway-red)); }
+
+/* Enhanced card styles with railway theme */
+.railway-card {
+  background: linear-gradient(135deg, 
+    hsl(var(--card)) 0%, 
+    hsl(var(--card) / 0.95) 100%);
+  border: 1px solid hsl(var(--border));
+  box-shadow: 
+    0 1px 3px 0 hsl(var(--primary) / 0.1),
+    0 1px 2px 0 hsl(var(--primary) / 0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+.railway-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    hsl(var(--railway-blue)), 
+    hsl(var(--railway-green)), 
+    hsl(var(--railway-yellow)));
+}
+
+/* Track visualization styles */
+.track-line {
+  position: relative;
+}
+
+.track-line::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    hsl(var(--railway-steel)) 0px,
+    hsl(var(--railway-steel)) 10px,
+    transparent 10px,
+    transparent 15px
+  );
+  transform: translateY(-50%);
+}
+
+/* Status indicator styles */
+.status-operational {
+  background: linear-gradient(135deg, hsl(var(--railway-green) / 0.1), hsl(var(--railway-green) / 0.05));
+  border-color: hsl(var(--railway-green) / 0.3);
+  color: hsl(var(--railway-green));
+}
+
+.status-warning {
+  background: linear-gradient(135deg, hsl(var(--railway-yellow) / 0.1), hsl(var(--railway-yellow) / 0.05));
+  border-color: hsl(var(--railway-yellow) / 0.3);
+  color: hsl(var(--railway-yellow));
+}
+
+.status-critical {
+  background: linear-gradient(135deg, hsl(var(--railway-red) / 0.1), hsl(var(--railway-red) / 0.05));
+  border-color: hsl(var(--railway-red) / 0.3);
+  color: hsl(var(--railway-red));
+}
+
+/* Enhanced button styles */
+.btn-railway {
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary) / 0.9));
+  border: 1px solid hsl(var(--primary) / 0.8);
+  box-shadow: 0 2px 4px hsl(var(--primary) / 0.2);
+  transition: all 0.2s ease;
+}
+
+.btn-railway:hover {
+  background: linear-gradient(135deg, hsl(var(--primary) / 0.9), hsl(var(--primary) / 0.8));
+  box-shadow: 0 4px 8px hsl(var(--primary) / 0.3);
+  transform: translateY(-1px);
+}
+
+/* Train movement animation */
+@keyframes train-move {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100vw); }
+}
+
+.train-animation {
+  animation: train-move 10s linear infinite;
+}
+
+/* Loading spinner with railway theme */
+@keyframes railway-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.railway-spinner {
+  border: 3px solid hsl(var(--muted));
+  border-top: 3px solid hsl(var(--primary));
+  border-radius: 50%;
+  animation: railway-spin 1s linear infinite;
+}
+
+/* Enhanced typography */
+.railway-heading {
+  background: linear-gradient(135deg, 
+    hsl(var(--primary)), 
+    hsl(var(--accent)));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+/* Responsive enhancements */
+@media (max-width: 768px) {
+  .app-background {
+    background-size: 
+      50px 50px,
+      50px 50px,
+      auto, auto, 
+      16px 16px, 
+      16px 16px;
+  }
+  
+  .beam-accent {
+    width: 30rem;
+    height: 30rem;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .beam-accent,
+  .signal-light,
+  .train-animation,
+  .railway-spinner {
+    animation: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --border: 0 0% 20%;
+    --primary: 220 100% 30%;
+  }
+  
+  .dark {
+    --border: 0 0% 80%;
+    --primary: 210 100% 80%;
+  }
+}
