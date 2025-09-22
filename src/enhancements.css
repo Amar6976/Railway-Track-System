@@ -35,8 +35,8 @@ code, pre, kbd, samp {
       hsl(var(--border) / 0.2) 100px
     ),
     /* Soft radial gradients */
-    radial-gradient(1200px 600px at 50% -10%, hsl(var(--primary) / 0.08), transparent 60%),
-    radial-gradient(800px 400px at 100% 0%, hsl(var(--accent) / 0.06), transparent 60%),
+    radial-gradient(1200px 600px at 50% -10%, hsl(var(--primary) / 0.06), transparent 60%),
+    radial-gradient(800px 400px at 100% 0%, hsl(var(--accent) / 0.04), transparent 60%),
     /* Fine grid */
     linear-gradient(to right, hsl(var(--border) / 0.5) 1px, transparent 1px),
     linear-gradient(to bottom, hsl(var(--border) / 0.5) 1px, transparent 1px);
@@ -47,7 +47,7 @@ code, pre, kbd, samp {
     24px 24px, 
     24px 24px;
   background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
-  mask-image: radial-gradient(ellipse at 50% 20%, black 60%, transparent 100%);
+  mask-image: radial-gradient(ellipse at 50% 25%, black 55%, transparent 100%);
 }
 
 .dark .app-background {
@@ -56,20 +56,27 @@ code, pre, kbd, samp {
       90deg,
       transparent 0px,
       transparent 48px,
-      hsl(var(--border) / 0.4) 48px,
-      hsl(var(--border) / 0.4) 50px
+      hsl(var(--border) / 0.18) 48px,
+      hsl(var(--border) / 0.18) 50px
     ),
     repeating-linear-gradient(
       0deg,
       transparent 0px,
       transparent 98px,
-      hsl(var(--border) / 0.3) 98px,
-      hsl(var(--border) / 0.3) 100px
+      hsl(var(--border) / 0.14) 98px,
+      hsl(var(--border) / 0.14) 100px
     ),
-    radial-gradient(1200px 600px at 50% -10%, hsl(var(--primary) / 0.12), transparent 60%),
-    radial-gradient(800px 400px at 100% 0%, hsl(var(--accent) / 0.12), transparent 60%),
-    linear-gradient(to right, hsl(var(--border) / 0.6) 1px, transparent 1px),
-    linear-gradient(to bottom, hsl(var(--border) / 0.6) 1px, transparent 1px);
+    radial-gradient(1200px 600px at 50% -10%, hsl(var(--primary) / 0.08), transparent 60%),
+    radial-gradient(800px 400px at 100% 0%, hsl(var(--accent) / 0.08), transparent 60%),
+    linear-gradient(to right, hsl(var(--border) / 0.25) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--border) / 0.25) 1px, transparent 1px);
+}
+
+.dark .beam-accent {
+  background:
+    radial-gradient(closest-side, hsl(var(--primary) / 0.10), transparent 50%),
+    radial-gradient(closest-side, hsl(var(--accent) / 0.06), transparent 70%);
+  filter: blur(50px);
 }
 
 /* Enhanced gradient beam accent */
@@ -298,6 +305,12 @@ code, pre, kbd, samp {
   .beam-accent {
     width: 30rem;
     height: 30rem;
+  }
+
+  /* Container side padding on small screens */
+  .container.mx-auto {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
   }
 }
 

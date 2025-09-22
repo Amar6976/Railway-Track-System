@@ -94,7 +94,7 @@ export function Dashboard() {
               </div>
               <p className="text-xs text-muted-foreground">
                 <span className={
-                  kpi.trend === "up" ? "text-green-600 font-semibold" : kpi.trend === "down" ? "text-red-600 font-semibold" : "text-gray-600"
+                  kpi.trend === "up" ? "text-green-600 font-semibold" : kpi.trend === "down" ? "text-red-600 font-semibold" : "text-muted-foreground"
                 }>
                   {kpi.change}
                 </span>
@@ -172,12 +172,12 @@ export function Dashboard() {
               </span>
               <Badge className="bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200 font-bold">2</Badge>
             </div>
-            <div className="flex items-center justify-between p-3 rounded-lg bg-gray-50 dark:bg-gray-950 border border-gray-200 dark:border-gray-800 hover:shadow-md transition-all">
+            <div className="flex items-center justify-between p-3 rounded-lg bg-muted/50 border border-border hover:shadow-md transition-all">
               <span className="flex items-center gap-2">
-                <Zap className="h-4 w-4 text-gray-600" />
+                <Zap className="h-4 w-4 text-muted-foreground" />
                 Emergency Holds
               </span>
-              <Badge className="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200 font-bold">0</Badge>
+              <Badge className="bg-muted text-foreground font-bold">0</Badge>
             </div>
           </CardContent>
         </Card>

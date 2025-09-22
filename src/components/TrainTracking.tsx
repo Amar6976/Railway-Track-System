@@ -56,7 +56,7 @@ export function TrainTracking() {
       case "waiting": return "text-yellow-600";
       case "delayed": return "text-red-600";
       case "at_station": return "text-blue-600";
-      default: return "text-gray-600";
+      default: return "text-muted-foreground";
     }
   };
 
@@ -83,8 +83,8 @@ export function TrainTracking() {
     <div className="space-y-6">
       <div>
         <h2 className="flex items-center gap-2 railway-heading text-2xl font-bold mb-2">
-          <div className="p-2 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 shadow-lg">
-            <Navigation className="h-6 w-6 text-white" />
+          <div className="p-2 rounded-lg bg-gradient-to-br from-primary to-primary/80 shadow-lg">
+            <Navigation className="h-6 w-6 text-primary-foreground" />
           </div>
           Live Train Tracking
         </h2>
@@ -196,8 +196,8 @@ export function TrainTracking() {
               </svg>
               
               {/* Legend */}
-              <div className="absolute bottom-4 left-4 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md rounded-lg p-4 shadow-xl border-2 border-slate-200 dark:border-slate-600">
-                <h4 className="text-xs font-bold mb-2 text-slate-700 dark:text-slate-300">Track Status</h4>
+              <div className="absolute bottom-4 left-4 bg-card/95 backdrop-blur-md rounded-lg p-4 shadow-xl border border-border">
+                <h4 className="text-xs font-bold mb-2 text-foreground">Track Status</h4>
                 <div className="space-y-2 text-xs">
                   <div className="flex items-center gap-2">
                     <div className="w-4 h-2 bg-green-500 rounded shadow-sm"></div>
@@ -241,7 +241,7 @@ export function TrainTracking() {
                     <Train className={`h-4 w-4 ${getStatusColor(train.status)}`} />
                   </div>
                   <div>
-                    <div className="font-bold text-slate-800 dark:text-slate-200">{train.name}</div>
+                    <div className="font-bold text-foreground">{train.name}</div>
                     <div className="text-sm text-muted-foreground flex items-center gap-1">
                       <MapPin className="h-3 w-3" />
                       {train.destination}

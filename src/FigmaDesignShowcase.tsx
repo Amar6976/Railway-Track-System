@@ -33,30 +33,30 @@ export default function FigmaDesignShowcase() {
 
         {/* Header Components */}
         <div className="space-y-6">
-          <h2 className="text-2xl font-semibold text-gray-900">Header Components</h2>
+          <h2 className="text-2xl font-semibold text-foreground">Header Components</h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Light Mode Header */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-              <h3 className="text-lg font-semibold mb-4 text-gray-900">Header - Light Mode</h3>
-              <div className="bg-white border border-gray-200 rounded-lg p-4">
+            <div className="bg-card rounded-xl shadow-sm border border-border p-6">
+              <h3 className="text-lg font-semibold mb-4 text-foreground">Header - Light Mode</h3>
+              <div className="bg-card border border-border rounded-lg p-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
-                        <MapPin className="h-5 w-5 text-white" />
+                      <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                        <MapPin className="h-5 w-5 text-primary-foreground" />
                       </div>
                       <div>
-                        <div className="font-semibold text-gray-900">Railway Control Center</div>
-                        <div className="text-xs text-gray-600">Section A - Central District</div>
+                        <div className="font-semibold text-foreground">Railway Control Center</div>
+                        <div className="text-xs text-muted-foreground">Section A - Central District</div>
                       </div>
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <span className="px-2 py-1 bg-gray-100 text-gray-800 rounded-full text-xs font-medium">
+                      <span className="px-2 py-1 bg-muted text-foreground rounded-full text-xs font-medium">
                         NORMAL OPERATION
                       </span>
-                      <span className="px-2 py-1 bg-green-50 text-green-700 border border-green-200 rounded-full text-xs font-medium flex items-center gap-1">
+                      <span className="px-2 py-1 bg-green-50 text-green-700 border border-green-200 rounded-full text-xs font-medium flex items-center gap-1 dark:bg-green-900 dark:text-green-200 dark:border-green-800">
                         <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
                         System Operational
                       </span>
@@ -65,19 +65,19 @@ export default function FigmaDesignShowcase() {
 
                   <div className="flex items-center gap-2">
                     <div className="text-right text-xs">
-                      <div className="font-medium text-gray-900">Controller A</div>
-                      <div className="text-gray-600">Day Shift</div>
+                      <div className="font-medium text-foreground">Controller A</div>
+                      <div className="text-muted-foreground">Day Shift</div>
                     </div>
-                    <button className="p-1.5 border border-gray-300 rounded hover:bg-gray-50">
+                    <button className="p-1.5 border border-border rounded hover:bg-accent">
                       <Moon className="h-3 w-3" />
                     </button>
-                    <button className="px-2 py-1.5 border border-gray-300 rounded text-xs flex items-center gap-1 hover:bg-gray-50">
+                    <button className="px-2 py-1.5 border border-border rounded text-xs flex items-center gap-1 hover:bg-accent">
                       <Shield className="h-3 w-3" />
                       <span>Supervisor</span>
                     </button>
-                    <button className="p-1.5 bg-red-600 text-white rounded hover:bg-red-700 relative">
-                      <Bell className="h-3 w-3" />
-                      <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-600 text-white text-xs rounded-full flex items-center justify-center font-medium">
+                    <button className="p-1.5 bg-destructive text-destructive-foreground rounded hover:bg-destructive/90 relative">
+                      <Bell className="h-3 w-3 text-white" />
+                      <span className="absolute -top-1 -right-1 w-4 h-4 bg-destructive text-destructive-foreground text-xs rounded-full flex items-center justify-center font-medium">
                         2
                       </span>
                     </button>
@@ -87,8 +87,8 @@ export default function FigmaDesignShowcase() {
             </div>
 
             {/* Dark Mode Header */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-              <h3 className="text-lg font-semibold mb-4 text-gray-900">Header - Dark Mode</h3>
+            <div className="bg-card rounded-xl shadow-sm border border-border p-6">
+              <h3 className="text-lg font-semibold mb-4 text-foreground">Header - Dark Mode</h3>
               <div className="bg-gray-900 border border-gray-700 rounded-lg p-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">
@@ -126,7 +126,7 @@ export default function FigmaDesignShowcase() {
                       <span>Supervisor</span>
                     </button>
                     <button className="p-1.5 bg-red-600 text-white rounded hover:bg-red-700 relative">
-                      <Bell className="h-3 w-3" />
+                      <Bell className="h-3 w-3 text-white" />
                       <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-600 text-white text-xs rounded-full flex items-center justify-center font-medium">
                         2
                       </span>

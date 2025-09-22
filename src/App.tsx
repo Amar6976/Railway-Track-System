@@ -54,29 +54,14 @@ export default function App() {
   const [criticalAlerts] = useState(2);
   const [emergencyMode] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(() => {
-    // Check if dark mode preference exists in localStorage
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('darkMode');
-      return saved !== null ? JSON.parse(saved) : false;
-    }
-    return false;
-  });
+  const [darkMode] = useState(false);
 
   // Apply dark mode class to document
   useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-    // Save preference to localStorage
-    localStorage.setItem('darkMode', JSON.stringify(darkMode));
-  }, [darkMode]);
+    document.documentElement.classList.remove('dark');
+  }, []);
 
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
+  const toggleDarkMode = () => {};
 
   const navItems = [
     { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
@@ -133,17 +118,15 @@ export default function App() {
                 <div className="font-medium">Controller A</div>
                 <div className="text-muted-foreground">Day Shift</div>
               </div>
-              <Button variant="outline" size="sm" onClick={toggleDarkMode} className="hover:scale-105 transition-transform">
-                {darkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-              </Button>
+              {/* Dark mode toggle removed per request */}
               <Button variant="outline" size="sm" className="hover:scale-105 transition-transform">
                 <Shield className="h-4 w-4 mr-2" />
                 Supervisor
               </Button>
               {criticalAlerts > 0 && (
-                <Button variant="destructive" size="sm" className="relative hover:scale-105 transition-transform animate-pulse">
-                  <Bell className="h-4 w-4" />
-                  <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-600 text-white text-xs rounded-full flex items-center justify-center animate-bounce">
+                <Button variant="destructive" size="sm" className="relative hover:scale-105 transition-transform animate-pulse dark:bg-destructive pr-5">
+                  <Bell className="h-4 w-4 text-white drop-shadow relative z-0" />
+                  <span className="absolute -top-1 right-0 translate-x-1/2 w-5 h-5 bg-red-600 text-white text-xs rounded-full flex items-center justify-center animate-bounce z-10">
                     {criticalAlerts}
                   </span>
                 </Button>
@@ -219,13 +202,11 @@ export default function App() {
 
               {/* Right Side Actions */}
               <div className="flex items-center gap-2">
-                <Button variant="outline" size="sm" onClick={toggleDarkMode} className="hover:scale-105 transition-transform">
-                  {darkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-                </Button>
+                {/* Dark mode toggle removed per request */}
                 {criticalAlerts > 0 && (
-                  <Button variant="destructive" size="sm" className="relative hover:scale-105 transition-transform animate-pulse">
-                    <Bell className="h-4 w-4" />
-                    <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-600 text-white text-xs rounded-full flex items-center justify-center animate-bounce">
+                  <Button variant="destructive" size="sm" className="relative hover:scale-105 transition-transform animate-pulse dark:bg-destructive pr-5">
+                    <Bell className="h-4 w-4 text-white drop-shadow relative z-0" />
+                    <span className="absolute -top-1 right-0 translate-x-1/2 w-4 h-4 bg-red-600 text-white text-xs rounded-full flex items-center justify-center animate-bounce z-10">
                       {criticalAlerts}
                     </span>
                   </Button>

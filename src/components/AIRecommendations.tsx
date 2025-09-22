@@ -84,8 +84,8 @@ export function AIRecommendations() {
       case "priority": return "bg-blue-100 text-blue-800";
       case "hold": return "bg-yellow-100 text-yellow-800";
       case "reroute": return "bg-orange-100 text-orange-800";
-      case "speed_adjustment": return "bg-green-100 text-green-800";
-      default: return "bg-gray-100 text-gray-800";
+      case "speed_adjustment": return "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200";
+      default: return "bg-muted text-foreground";
     }
   };
 
@@ -94,7 +94,7 @@ export function AIRecommendations() {
       case "high": return "text-red-600";
       case "medium": return "text-yellow-600";
       case "low": return "text-green-600";
-      default: return "text-gray-600";
+      default: return "text-muted-foreground";
     }
   };
 
@@ -116,8 +116,8 @@ export function AIRecommendations() {
       <div className="flex items-center justify-between">
         <div>
           <h2 className="flex items-center gap-2 railway-heading text-2xl font-bold mb-2">
-            <div className="p-2 rounded-lg bg-gradient-to-br from-purple-500 to-indigo-600 shadow-lg">
-              <Bot className="h-6 w-6 text-white" />
+            <div className="p-2 rounded-lg bg-gradient-to-br from-primary to-primary/80 shadow-lg">
+              <Bot className="h-6 w-6 text-primary-foreground" />
             </div>
             AI Decision Recommendations
           </h2>
@@ -166,14 +166,14 @@ export function AIRecommendations() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
-                <div className="flex items-center justify-between text-sm p-2 rounded bg-slate-50 dark:bg-slate-800">
+                <div className="flex items-center justify-between text-sm p-2 rounded bg-muted/50">
                   <span>Affected Train:</span>
                   <span className="font-bold text-blue-600">{rec.train}</span>
                 </div>
-                <div className="flex items-center justify-between text-sm p-2 rounded bg-slate-50 dark:bg-slate-800">
+                <div className="flex items-center justify-between text-sm p-2 rounded bg-muted/50">
                   <span>Confidence:</span>
                   <div className="flex items-center gap-2">
-                    <div className="w-16 h-2 bg-gray-200 rounded-full overflow-hidden">
+                    <div className="w-16 h-2 bg-muted rounded-full overflow-hidden">
                       <div 
                         className="h-full bg-gradient-to-r from-green-400 to-green-600 transition-all duration-300"
                         style={{ width: `${rec.confidence}%` }}
@@ -182,13 +182,13 @@ export function AIRecommendations() {
                     <span className="font-bold text-green-600">{rec.confidence}%</span>
                   </div>
                 </div>
-                <div className="flex items-center justify-between text-sm p-2 rounded bg-slate-50 dark:bg-slate-800">
+                <div className="flex items-center justify-between text-sm p-2 rounded bg-muted/50">
                   <span>Impact Level:</span>
                   <span className={`font-bold ${getImpactColor(rec.impact)}`}>
                     {rec.impact.charAt(0).toUpperCase() + rec.impact.slice(1)}
                   </span>
                 </div>
-                <div className="flex items-center justify-between text-sm p-2 rounded bg-slate-50 dark:bg-slate-800">
+                <div className="flex items-center justify-between text-sm p-2 rounded bg-muted/50">
                   <span>Execute:</span>
                   <span className="font-bold text-orange-600">{rec.timeToExecute}</span>
                 </div>
